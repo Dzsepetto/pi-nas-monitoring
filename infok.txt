@@ -1,0 +1,19 @@
+sudo rm -rf /admin/pi-admin-api/publish
+sudo mv /mnt/hdd/publish /admin/pi-admin-api
+cd /admin/pi-admin-api/publish
+touch .env
+sudo echo 'Jwt__Key=pi_admin_api_super_secret_jwt_key_2026_minimum_32_chars' > .env
+cat .env
+
+chmod +x pi-admin-api ./pi-admin-api
+
+ASPNETCORE_URLS=http://0.0.0.0:5000 ./pi-admin-api #igy futtatjuk
+
+
+Release:
+dotnet publish -c Release -r linux-arm64 --self-contained true -p:PublishSingleFile=true -o ./publish^C
+
+
+mi kell hozzá: 
+
+sudo apt install -y util-linux

@@ -1,0 +1,31 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.topbar p {
+    margin: 6px 0 0;
+    color: #6b7280;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width:800px) {
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+}
