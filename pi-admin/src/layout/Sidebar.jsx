@@ -27,6 +27,9 @@ function Sidebar() {
 
       <div className={`sidebar-menu ${isOpen ? 'open' : ''}`}>
         <nav>
+          <NavLink to="/dashboard" onClick={closeMenu}>
+              Dashboard
+          </NavLink>
           <NavLink to="/services" onClick={closeMenu}>
             Szolgáltatások
           </NavLink>

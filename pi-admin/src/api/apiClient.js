@@ -1,6 +1,6 @@
 import { getToken } from '../utils/authStorage'
 
-const API_BASE_URL = ''
+const API_BASE_URL = 'http://100.109.109.54'
 
 export async function apiRequest(path, options = {}) {
   const token = getToken()

@@ -6,5 +6,6 @@ namespace pi_admin_api.Services.Interfaces
     {
         Task<List<StorageDriveDto>> GetDrivesAsync();
         Task<List<MonitoredStorageDto>> GetMonitoredDrivesAsync();
+        Task<List<StorageSpaceDto>> GetSpaceAsync();
     }
 }

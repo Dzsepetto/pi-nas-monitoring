@@ -2,6 +2,7 @@
 using pi_admin_api.Services.Interfaces;
 using System.Diagnostics;
 using System.Text.Json;
+using System.IO;
 
 namespace pi_admin_api.Services;
 
@@ -155,6 +156,82 @@ public class StorageService : IStorageService
                 PropertyNameCaseInsensitive = true
             }
         ) ?? new Dictionary<string, StorageConfigItem>();
+    }
+
+    public async Task<List<StorageSpaceDto>> GetSpaceAsync()
+    {
+        const string sysUuid = "d4cc7d63-da78-48ad-9bdd-64ffbba449a8";
+
+        var drives = await GetDrivesAsync();
+        var config = await LoadStorageConfigAsync();
+
+        var monitoredUuids = config.Keys
+            .Append(sysUuid)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        var result = new List<StorageSpaceDto>();
+
+        foreach (var uuid in monitoredUuids)
+        {
+            var drive = drives.FirstOrDefault(x =>
+                string.Equals(x.Uuid, uuid, StringComparison.OrdinalIgnoreCase)
+            );
+
+            var displayName = uuid == sysUuid
+                ? "Rendszer tárhely"
+                : config.TryGetValue(uuid, out var settings)
+                    ? settings.DisplayName
+                    : uuid;
+
+            var item = new StorageSpaceDto
+            {
+                Uuid = uuid,
+                DisplayName = displayName,
+                IsConnected = drive != null,
+                IsMounted = drive?.IsMounted ?? false,
+                MountPoint = drive?.MountPoint
+            };
+
+            if (!string.IsNullOrWhiteSpace(drive?.MountPoint))
+            {
+                var info = new DriveInfo(drive.MountPoint);
+
+                var total = info.TotalSize;
+                var free = info.AvailableFreeSpace;
+                var used = total - free;
+
+                item.TotalBytes = total;
+                item.FreeBytes = free;
+                item.UsedBytes = used;
+                item.UsedPercent = total > 0
+                    ? Math.Round((double)used / total * 100, 2)
+                    : 0;
+
+                item.TotalText = FormatBytes(total);
+                item.FreeText = FormatBytes(free);
+                item.UsedText = FormatBytes(used);
+            }
+
+            result.Add(item);
+        }
+
+        return result;
+    }
+    private static string FormatBytes(long bytes)
+    {
+        string[] sizes = ["B", "KB", "MB", "GB", "TB", "PB"];
+
+        double len = bytes;
+        var order = 0;
+
+        while (len >= 1024 && order < sizes.Length - 1)
+        {
+            order++;
+            len /= 1024;
+        }
+
+        return $"{len:0.##} {sizes[order]}";
     }
 }
 

@@ -30,4 +30,18 @@ public class StorageController : ControllerBase
             }
         });
     }
+    [HttpGet("space")]
+    public async Task<IActionResult> GetSpace()
+    {
+        var spaces = await _storageService.GetSpaceAsync();
+
+        return Ok(new
+        {
+            success = true,
+            data = new
+            {
+                spaces
+            }
+        });
+    }
 }

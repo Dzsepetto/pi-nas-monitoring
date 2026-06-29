@@ -1,0 +1,59 @@
+.storage-space-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+}
+
+.storage-space-chart svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+}
+
+.chart-bg {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 10;
+}
+
+.chart-progress {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.storage-space-chart text {
+  transform: rotate(90deg);
+  transform-origin: center;
+  font-size: 18px;
+  font-weight: bold;
+  fill: #111827;
+}
+
+.storage-space-info {
+  width: 100%;
+  text-align: center;
+}
+
+.storage-space-info h3 {
+  margin: 0 0 14px;
+}
+
+.storage-space-info div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.storage-space-info span {
+  color: #6b7280;
+}
+
+.storage-space-info strong {
+  color: #111827;
+}

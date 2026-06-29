@@ -1,0 +1,14 @@
+.service-status-widget {
+  width: 100%;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0 16px;
+}
+
+.widget-header h2 {
+  margin: 0;
+}

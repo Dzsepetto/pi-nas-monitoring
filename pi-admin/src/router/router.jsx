@@ -7,6 +7,7 @@ import LoginPage from '../pages/LoginPage'
 import ServicesPage from '../pages/ServicesPage'
 import StoragePage from '../pages/StoragePage'
 import NotFoundPage from '../pages/NotFoundPage'
+import DashboardPage from '../pages/DashboardPage'
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ export const router = createBrowserRouter([
         children: [
           {
             path: '/',
-            element: <Navigate to="/services" replace />
+            element: <Navigate to="/dashboard" replace />
+          },
+          {
+            path: '/dashboard',
+            element: <DashboardPage />
           },
           {
             path: '/services',
