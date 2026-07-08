@@ -22,6 +22,7 @@ export async function apiRequest(path, options = {}) {
   const result = await response.json()
 
   if (!response.ok || !result.success) {
+    console.log(result.error?.message)
     throw new Error(result.error?.message || 'API hiba történt.')
   }
 

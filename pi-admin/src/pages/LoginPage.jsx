@@ -22,7 +22,7 @@ function LoginPage() {
       const data = await loginRequest(username)
 
       login(data.token)
-      navigate('/services', { replace: true })
+      navigate('/dashboard', { replace: true })
     } catch (err) {
       setError(err.message)
     } finally {

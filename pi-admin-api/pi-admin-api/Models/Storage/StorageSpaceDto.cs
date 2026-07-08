@@ -2,6 +2,7 @@
 
 public class StorageSpaceDto
 {
+    public string? Device { get; set; }
     public string Uuid { get; set; } = string.Empty;
     public string DisplayName { get; set; } = string.Empty;
 

@@ -1,0 +1,30 @@
+.storage-detail-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.storage-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.storage-detail-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--surface-secondary);
+}
+
+.storage-detail-grid span {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.storage-detail-grid strong {
+    font-size: 15px;
+    word-break: break-word;
+}

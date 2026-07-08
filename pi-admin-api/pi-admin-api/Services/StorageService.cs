@@ -190,7 +190,8 @@ public class StorageService : IStorageService
                 DisplayName = displayName,
                 IsConnected = drive != null,
                 IsMounted = drive?.IsMounted ?? false,
-                MountPoint = drive?.MountPoint
+                MountPoint = drive?.MountPoint,
+                Device = drive?.Device
             };
 
             if (!string.IsNullOrWhiteSpace(drive?.MountPoint))

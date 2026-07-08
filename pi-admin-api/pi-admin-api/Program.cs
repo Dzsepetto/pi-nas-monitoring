@@ -81,6 +81,9 @@ builder.Services
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ISystemService, SystemService>();
 builder.Services.AddScoped<IStorageService, StorageService>();
+builder.Services.AddScoped<IHDSentinelService, HDSentinelService>();
+builder.Services.AddScoped<IStorageOverviewService, StorageOverviewService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
 #endregion
 //
 

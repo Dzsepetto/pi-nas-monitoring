@@ -1,0 +1,80 @@
+.storage-overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.storage-overview-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.storage-overview-header h3 {
+  margin: 0;
+}
+
+.storage-overview-header p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+}
+
+.storage-overview-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.storage-overview-chart {
+  width: 140px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.storage-overview-chart svg {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.storage-overview-chart text {
+  transform: rotate(90deg);
+  transform-origin: center;
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+
+.storage-overview-chart span {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.storage-overview-info {
+  flex: 1;
+}
+
+.storage-overview-info div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.storage-overview-info span {
+  color: var(--text-muted);
+}
+
+.storage-overview-info strong {
+  text-align: right;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+}

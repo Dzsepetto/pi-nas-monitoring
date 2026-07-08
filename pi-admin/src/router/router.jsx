@@ -8,6 +8,7 @@ import ServicesPage from '../pages/ServicesPage'
 import StoragePage from '../pages/StoragePage'
 import NotFoundPage from '../pages/NotFoundPage'
 import DashboardPage from '../pages/DashboardPage'
+import StorageDetailPage from '../pages/StorageDetailPage'
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ export const router = createBrowserRouter([
           {
             path: '/storage',
             element: <StoragePage />
-          }
+          },
+                    {
+            path: '/storage/:uuid',
+            element: <StorageDetailPage />
+          },
         ]
       }
     ]

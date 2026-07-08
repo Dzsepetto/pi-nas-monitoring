@@ -1,17 +1,15 @@
 import Topbar from '../components/elements/TopBar/Topbar'
-import StorageStatusWidget from '../components/widgets/storage/Status/StorageStatusWidget'
-import StorageSpaceWidget from '../components/widgets/storage/Space/StorageSpaceWidget'
+import StorageOverviewWidget from '../components/widgets/storage/Overview/StorageOverviewWidget'
 
 function StoragePage() {
   return (
     <>
       <Topbar
         title="Háttértárak"
-        subtitle="Csatlakoztatott meghajtók és mount állapot"
+        subtitle="Meghajtók, tárhelyhasználat és állapot"
       />
 
-      <StorageStatusWidget />
-      <StorageSpaceWidget />
+      <StorageOverviewWidget />
     </>
   )
 }
