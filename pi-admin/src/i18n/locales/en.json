@@ -1,0 +1,26 @@
+{
+"layout": {
+    "title": "Pi Admin",
+    "dashboard": "Dashboard",
+    "services": "Services",
+    "storage": "Storage",
+    "logout": "Logout",
+    "openMenu": "Open menu"
+  },
+  "storage": {
+    "title": "Storage",
+    "used": "Used",
+    "free": "Free",
+    "total": "Total",
+    "health": "Health",
+    "temperature": "Temperature",
+    "powerOnHours": "Power-on hours",
+    "device": "Device",
+    "model": "Model",
+    "active": "Active",
+    "notConnected": "Not connected",
+    "notMounted": "Not mounted",
+    "noDevice": "No device",
+    "notAvailable": "N/A"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "layout": {
+    "title": "Pi Admin",
+    "dashboard": "Dashboard",
+    "services": "Szolgáltatások",
+    "storage": "Háttértárak",
+    "logout": "Kilépés",
+    "openMenu": "Menü megnyitása"
+  },
+  "storage": {
+    "title": "Tárhely",
+    "used": "Használt",
+    "free": "Szabad",
+    "total": "Összes",
+    "health": "Állapot",
+    "temperature": "Hőmérséklet",
+    "powerOnHours": "Üzemidő",
+    "device": "Eszköz",
+    "model": "Modell",
+    "active": "Aktív",
+    "notConnected": "Nincs csatlakoztatva",
+    "notMounted": "Nincs csatolva",
+    "noDevice": "Nincs eszköz",
+    "notAvailable": "N/A"
+  }
+}
