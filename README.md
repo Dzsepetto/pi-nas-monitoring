@@ -1,5 +1,12 @@
 # Pi NAS Monitoring
 
+![License](https://img.shields.io/github/license/Dzsepetto/pi-nas-monitoring)
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
+![Last Commit](https://img.shields.io/github/last-commit/Dzsepetto/pi-nas-monitoring)
+![Stars](https://img.shields.io/github/stars/Dzsepetto/pi-nas-monitoring?style=social)
+
 A modern monitoring dashboard for Raspberry Pi based NAS systems.
 
 Pi NAS Monitoring provides a clean and responsive web interface for monitoring Raspberry Pi based NAS devices. It combines a modern React frontend with an ASP.NET Core REST API to display storage information, system status and hardware health in a lightweight, easy-to-use application.
