@@ -2,34 +2,43 @@
 
 set -e
 
+APP_NAME="pi-admin-api"
+SOURCE_DIR="/mnt/hdd/publish"
+TARGET_ROOT="/admin/pi-admin-api"
+TARGET_DIR="$TARGET_ROOT/publish"
+SERVICE_SETUP_SCRIPT="$TARGET_ROOT/service-setup.sh"
+
+JWT_KEY="change-this-super-secret-jwt-key-minimum-32-characters"
+
 echo "===== Pi Admin API Deploy ====="
 
-echo "Leállítás..."
-pkill pi-admin-api || true
+echo "Stopping existing API process..."
+pkill "$APP_NAME" || true
 
-echo "Régi publish törlése..."
-sudo rm -rf /admin/pi-admin-api/publish
+echo "Removing old publish directory..."
+sudo rm -rf "$TARGET_DIR"
 
-echo "Új publish áthelyezése..."
-sudo mkdir -p /admin/pi-admin-api
-sudo mv /mnt/hdd/publish /admin/pi-admin-api
+echo "Creating target directory..."
+sudo mkdir -p "$TARGET_ROOT"
 
-cd /admin/pi-admin-api/publish
+echo "Moving new publish directory..."
+sudo mv "$SOURCE_DIR" "$TARGET_ROOT"
 
-echo "ENV létrehozása..."
+cd "$TARGET_DIR"
 
-cat > .env << EOF
-Jwt__Key=pi_admin_api_super_secret_jwt_key_2026_minimum_32_chars
+echo "Creating .env file..."
+
+sudo tee .env > /dev/null <<EOF
+Jwt__Key=$JWT_KEY
 EOF
 
-echo ".env:"
-cat .env
+echo ".env file created."
 
-echo "Systemd service beállítása..."
+echo "Setting up systemd service..."
 
-cd /admin/pi-admin-api
+cd "$TARGET_ROOT"
 
-chmod +x service-setup.sh
-./service-setup.sh
+chmod +x "$SERVICE_SETUP_SCRIPT"
+"$SERVICE_SETUP_SCRIPT"
 
-echo "Deploy kész."
+echo "API deploy completed."

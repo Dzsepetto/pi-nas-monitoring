@@ -54,7 +54,6 @@ The application collects and displays important system information through an in
 
 | Document | Description |
 |----------|-------------|
-| [Installation](docs/installation.md) | Complete installation guide |
 | [Quick Start](docs/quick-start.md) | Get up and running quickly |
 | [Configuration](docs/configuration.md) | Environment variables and configuration |
 | [Raspberry Pi](docs/raspberry-pi.md) | Raspberry Pi specific setup |
