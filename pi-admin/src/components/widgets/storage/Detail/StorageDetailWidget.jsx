@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { getStorageByUuid } from '../../../../api/overviewApi'
 import './StorageDetailWidget.css'
 
 function StorageDetailWidget() {
   const { uuid } = useParams()
+  const { t } = useTranslation()
 
   const [drive, setDrive] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -33,11 +35,11 @@ function StorageDetailWidget() {
   }
 
   if (loading && !drive) {
-    return <section className="panel">Betöltés...</section>
+    return <section className="panel">{t('storage.loading')}</section>
   }
 
   if (!drive) {
-    return <section className="panel">Nincs adat.</section>
+    return <section className="panel">{t('storage.noData')}</section>
   }
 
   return (
@@ -46,73 +48,87 @@ function StorageDetailWidget() {
         <h2>{drive.displayName}</h2>
 
         <button onClick={loadDrive} disabled={loading}>
-          {loading ? 'Frissítés...' : 'Frissítés'}
+          {loading ? t('storage.refreshing') : t('storage.refresh')}
         </button>
       </div>
 
       <div className="storage-detail-grid">
         <div>
-          <span>Állapot</span>
-          <strong>{drive.isMounted ? 'Active' : 'Not active'}</strong>
+          <span>{t('storage.health')}</span>
+          <strong>
+            {drive.isMounted ? t('storage.active') : t('storage.notActive')}
+          </strong>
         </div>
 
         <div>
-          <span>Eszköz</span>
+          <span>{t('storage.device')}</span>
           <strong>{drive.device || '-'}</strong>
         </div>
 
         <div>
-          <span>Mount pont</span>
+          <span>{t('storage.mountPoint')}</span>
           <strong>{drive.mountPoint || '-'}</strong>
         </div>
 
         <div>
-          <span>Használt tárhely</span>
+          <span>{t('storage.used')}</span>
           <strong>{drive.usedText || '-'}</strong>
         </div>
 
         <div>
-          <span>Szabad tárhely</span>
+          <span>{t('storage.free')}</span>
           <strong>{drive.freeText || '-'}</strong>
         </div>
 
         <div>
-          <span>Összes tárhely</span>
+          <span>{t('storage.total')}</span>
           <strong>{drive.totalText || '-'}</strong>
         </div>
 
         <div>
-          <span>Kihasználtság</span>
+          <span>{t('storage.usage')}</span>
           <strong>{drive.usedPercent?.toFixed(2) ?? '-'}%</strong>
         </div>
 
         <div>
-          <span>Health</span>
-          <strong>{drive.healthPercent ?? '-'}%</strong>
+          <span>{t('storage.health')}</span>
+          <strong>
+            {drive.healthPercent !== null && drive.healthPercent !== undefined
+              ? `${drive.healthPercent}%`
+              : t('storage.notAvailable')}
+          </strong>
         </div>
 
         <div>
-          <span>Hőmérséklet</span>
-          <strong>{drive.temperatureC ?? '-'} °C</strong>
+          <span>{t('storage.temperature')}</span>
+          <strong>
+            {drive.temperatureC !== null && drive.temperatureC !== undefined
+              ? `${drive.temperatureC} °C`
+              : t('storage.notAvailable')}
+          </strong>
         </div>
 
         <div>
-          <span>Üzemidő</span>
-          <strong>{drive.powerOnHours ?? '-'} óra</strong>
+          <span>{t('storage.powerOnHours')}</span>
+          <strong>
+            {drive.powerOnHours !== null && drive.powerOnHours !== undefined
+              ? `${drive.powerOnHours} ${t('storage.hours')}`
+              : t('storage.notAvailable')}
+          </strong>
         </div>
 
         <div>
-          <span>Modell</span>
+          <span>{t('storage.model')}</span>
           <strong>{drive.model || '-'}</strong>
         </div>
 
         <div>
-          <span>Sorozatszám</span>
+          <span>{t('storage.serialNumber')}</span>
           <strong>{drive.serialNumber || '-'}</strong>
         </div>
 
         <div>
-          <span>Interfész</span>
+          <span>{t('storage.interface')}</span>
           <strong>{drive.interface || '-'}</strong>
         </div>
       </div>

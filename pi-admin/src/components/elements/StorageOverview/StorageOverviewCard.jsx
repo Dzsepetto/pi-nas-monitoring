@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 function StorageOverviewCard({ drive }) {
-  const navigate = useNavigate() 
-  const {t} = useTranslation()
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+
   const usedPercent = drive.usedPercent ?? 0
   const healthPercent = drive.healthPercent ?? null
 
@@ -16,14 +17,14 @@ function StorageOverviewCard({ drive }) {
   }
 
   function openDetails() {
-    console.log(`'EZ a uuid: ${drive.uuid}'`)
+    console.log(`EZ a uuid: ${drive.uuid}`)
     navigate(`/storage/${drive.uuid}`)
   }
 
   function getStatusText() {
-    if (!drive.isConnected) return 'Not connected'
-    if (!drive.isMounted) return 'Not mounted'
-    return 'Active'
+    if (!drive.isConnected) return t('storage.notConnected')
+    if (!drive.isMounted) return t('storage.notMounted')
+    return t('storage.active')
   }
 
   return (
@@ -31,7 +32,7 @@ function StorageOverviewCard({ drive }) {
       <div className="storage-overview-header">
         <div>
           <h3>{drive.displayName}</h3>
-          <p>{drive.mountPoint || drive.device || 'No device'}</p>
+          <p>{drive.mountPoint || drive.device || t('storage.noDevice')}</p>
         </div>
 
         <span className={drive.isMounted ? 'badge active' : 'badge inactive'}>
@@ -64,53 +65,55 @@ function StorageOverviewCard({ drive }) {
             </text>
           </svg>
 
-          <span>Tárhely</span>
+          <span>{t('storage.title')}</span>
         </div>
 
         <div className="storage-overview-info">
           <div>
-            <span>Használt</span>
+            <span>{t('storage.used')}</span>
             <strong>{drive.usedText || '-'}</strong>
           </div>
 
           <div>
-            <span>Szabad</span>
+            <span>{t('storage.free')}</span>
             <strong>{drive.freeText || '-'}</strong>
           </div>
 
           <div>
-            <span>Összes</span>
+            <span>{t('storage.total')}</span>
             <strong>{drive.totalText || '-'}</strong>
           </div>
 
           <div>
-            <span>Health</span>
+            <span>{t('storage.health')}</span>
             <strong style={{ color: getHealthColor(healthPercent) }}>
-              {healthPercent !== null ? `${healthPercent}%` : 'N/A'}
+              {healthPercent !== null ? `${healthPercent}%` : t('storage.notAvailable')}
             </strong>
           </div>
 
           <div>
-            <span>Hőmérséklet</span>
+            <span>{t('storage.temperature')}</span>
             <strong>
-              {drive.temperatureC !== null ? `${drive.temperatureC} °C` : 'N/A'}
+              {drive.temperatureC !== null ? `${drive.temperatureC} °C` : t('storage.notAvailable')}
             </strong>
           </div>
 
           <div>
-            <span>Üzemidő</span>
+            <span>{t('storage.powerOnHours')}</span>
             <strong>
-              {drive.powerOnHours !== null ? `${drive.powerOnHours} óra` : 'N/A'}
+              {drive.powerOnHours !== null
+                ? `${drive.powerOnHours} ${t('storage.hours')}`
+                : t('storage.notAvailable')}
             </strong>
           </div>
 
           <div>
-            <span>Eszköz</span>
+            <span>{t('storage.device')}</span>
             <strong>{drive.device || '-'}</strong>
           </div>
 
           <div>
-            <span>Modell</span>
+            <span>{t('storage.model')}</span>
             <strong>{drive.model || '-'}</strong>
           </div>
         </div>

@@ -9,7 +9,10 @@
     "settings": "Beállítások"
   },
   "storage": {
-    "title": "Tárhely",
+    "title": "Háttértárak",
+    "sub-title": "Meghajtók, tárhelyhasználat és állapot",
+    "card-title": "Tárhely",
+
     "used": "Használt",
     "free": "Szabad",
     "total": "Összes",
@@ -19,10 +22,22 @@
     "device": "Eszköz",
     "model": "Modell",
     "active": "Aktív",
+    "notActive": "Nem aktív",
     "notConnected": "Nincs csatlakoztatva",
     "notMounted": "Nincs csatolva",
     "noDevice": "Nincs eszköz",
-    "notAvailable": "N/A"
+    "notAvailable": "N/A",
+    "hours": "óra",
+
+    "loading": "Betöltés...",
+    "refresh": "Frissítés",
+    "refreshing": "Frissítés..."
+  },
+
+  "storageDetail": {
+    "title": "Háttértár részletei",
+    "sub-title": "Részletes információk a kiválasztott meghajtóról",
+    "card-title": "Meghajtó adatai"
   },
   "settings": {
     "title": "Beállítások",
@@ -41,9 +56,9 @@
     "space" : "Szabad tárhely"
   },
     "service": {
-    "title" : "Services",
+    "title" : "Szolgáltatások",
     "sub-title" : "Tailscale, Samba, hd-idle állapota",
-    "card-title" : "Service státuszok",
+    "card-title" : "Szolgáltatás státuszok",
     "running": "Fut",
     "not-running": "Nem fut",
     "refresh" : "Frissítés"

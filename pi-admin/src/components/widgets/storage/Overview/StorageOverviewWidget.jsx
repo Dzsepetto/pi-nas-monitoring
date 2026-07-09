@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import { getStorageOverview } from '../../../../api/overviewApi'
 import StorageOverviewCard from '../../../elements/StorageOverview/StorageOverviewCard'
 import './StorageOverviewWidget.css'
+import { useTranslation } from 'react-i18next'
 
 function StorageOverviewWidget() {
   const [drives, setDrives] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const {t} = useTranslation()
 
   async function loadDrives() {
     try {
@@ -33,7 +35,7 @@ function StorageOverviewWidget() {
   return (
     <section>
       <div className="widget-header">
-        <h2>Meghajtók</h2>
+        <h2>{t('storage.card-title')}</h2>
 
         <button onClick={loadDrives} disabled={loading}>
           {loading ? 'Frissítés...' : 'Frissítés'}

@@ -8,22 +8,37 @@
     "openMenu": "Open menu",
     "settings": "Settings"
   },
-  "storage": {
-    "title": "Storage",
-    "used": "Used",
-    "free": "Free",
-    "total": "Total",
-    "health": "Health",
-    "temperature": "Temperature",
-    "powerOnHours": "Power-on hours",
-    "device": "Device",
-    "model": "Model",
-    "active": "Active",
-    "notConnected": "Not connected",
-    "notMounted": "Not mounted",
-    "noDevice": "No device",
-    "notAvailable": "N/A"
-  },
+"storage": {
+  "title": "Storage",
+  "sub-title": "Drives, storage usage and health",
+  "card-title": "Storage",
+
+  "used": "Used",
+  "free": "Free",
+  "total": "Total",
+  "health": "Health",
+  "temperature": "Temperature",
+  "powerOnHours": "Power-on Hours",
+  "device": "Device",
+  "model": "Model",
+  "active": "Active",
+  "notActive": "Not Active",
+  "notConnected": "Not Connected",
+  "notMounted": "Not Mounted",
+  "noDevice": "No Device",
+  "notAvailable": "N/A",
+  "hours": "hours",
+
+  "loading": "Loading...",
+  "refresh": "Refresh",
+  "refreshing": "Refreshing..."
+},
+
+"storageDetail": {
+  "title": "Storage Details",
+  "sub-title": "Detailed information about the selected drive",
+  "card-title": "Drive Information"
+},
   "settings": {
     "title": "Settings",
     "description": "Change the application language and appearance.",
