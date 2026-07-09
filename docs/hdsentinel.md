@@ -2,7 +2,26 @@
 
 ## 1. Download the ARM64 version
 
-Download the **HDSentinel ARMv8 (aarch64)** package from the official Hard Disk Sentinel website.
+Download the **appropriate Hard Disk Sentinel package** for your Raspberry Pi from the official Hard Disk Sentinel website.
+
+If your Raspberry Pi is running a 64-bit operating system, download the **HDSentinel ARMv8 (aarch64)** version.
+
+To check your system architecture, run:
+
+```bash
+uname -m
+```
+
+Example output:
+
+```text
+aarch64
+```
+
+If the output is `aarch64`, download the **ARMv8 (aarch64)** version.
+
+If you get a different result (for example `armv7l`), choose the package that matches your architecture.
+
 
 ## 2. Create the installation directory
 
@@ -13,7 +32,7 @@ sudo mkdir -p /hdsentinel
 ## 3. Move the downloaded archive
 
 If the downloaded ZIP file is located on an external drive:
-
+(in my case) --> mv (source) (dist)
 ```bash
 sudo mv /mnt/hdd/HDSentinel-armv8.zip /hdsentinel
 ```

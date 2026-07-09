@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../hooks/useAuth'
 import './style/sideBarStyle.css'
 
 function Sidebar() {
   const { logout } = useAuth()
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   function closeMenu() {
@@ -14,12 +16,12 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <h2>Pi Admin</h2>
+        <h2>{t('layout.title')}</h2>
 
         <button
           className="hamburger-button"
           onClick={() => setIsOpen((current) => !current)}
-          aria-label="Menü megnyitása"
+          aria-label={t('layout.openMenu')}
         >
           ☰
         </button>
@@ -28,20 +30,31 @@ function Sidebar() {
       <div className={`sidebar-menu ${isOpen ? 'open' : ''}`}>
         <nav>
           <NavLink to="/dashboard" onClick={closeMenu}>
-              Dashboard
+            {t('layout.dashboard')}
           </NavLink>
+
           <NavLink to="/services" onClick={closeMenu}>
-            Szolgáltatások
+            {t('layout.services')}
           </NavLink>
 
           <NavLink to="/storage" onClick={closeMenu}>
-            Háttértárak
+            {t('layout.storage')}
           </NavLink>
         </nav>
 
-        <button className="logout-button" onClick={logout}>
-          Kilépés
-        </button>
+        <div className="sidebar-footer">
+          <NavLink
+            to="/settings"
+            className="settings-button"
+            onClick={closeMenu}
+          >
+            {t('layout.settings')}
+          </NavLink>
+
+          <button className="logout-button" onClick={logout}>
+            {t('layout.logout')}
+          </button>
+        </div>
       </div>
     </aside>
   )

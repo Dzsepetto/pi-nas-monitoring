@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import './DashboardStorageCard.css'
+import { useTranslation } from 'react-i18next'
 
 function DashboardStorageCard({ drive }) {
   const navigate = useNavigate()
+  const { t } = useTranslation()
+
 
   function openDetails() {
     navigate(`/storage/${drive.uuid}`)
@@ -27,14 +30,14 @@ function DashboardStorageCard({ drive }) {
 
       <div className="dashboard-storage-info">
         <div>
-          <span>Health</span>
+          <span>{t('dashboard.health')}</span>
          <strong style={{ color: getHealthColor(drive.healthPercent) }}>
             {drive.healthPercent ?? '-'}%
          </strong>
         </div>
 
         <div>
-          <span>Szabad Tárhely</span>
+          <span>  {t('dashboard.space')}</span>
           <strong>{ 100- (drive.usedPercent?.toFixed(0)) ?? '-'}%</strong>
         </div>
       </div>

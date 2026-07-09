@@ -3,16 +3,21 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
+    background: var(--surface-color);
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    padding: 10px;
 }
 
 .topbar h1 {
     margin: 0;
     font-size: 32px;
+    color: var(--text-color);
 }
 
 .topbar p {
     margin: 6px 0 0;
-    color: #6b7280;
+    color: var(--text-color);
 }
 
 .topbar-actions {

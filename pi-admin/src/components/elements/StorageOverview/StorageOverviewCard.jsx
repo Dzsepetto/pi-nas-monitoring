@@ -1,8 +1,10 @@
 import './StorageOverviewCard.css'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 function StorageOverviewCard({ drive }) {
   const navigate = useNavigate() 
+  const {t} = useTranslation()
   const usedPercent = drive.usedPercent ?? 0
   const healthPercent = drive.healthPercent ?? null
 

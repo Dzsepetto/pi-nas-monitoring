@@ -5,7 +5,8 @@
     "services": "Services",
     "storage": "Storage",
     "logout": "Logout",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "settings": "Settings"
   },
   "storage": {
     "title": "Storage",
@@ -22,5 +23,29 @@
     "notMounted": "Not mounted",
     "noDevice": "No device",
     "notAvailable": "N/A"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Change the application language and appearance.",
+    "languageTitle": "Language",
+    "languageDescription": "Choose the application language.",
+    "themeTitle": "Theme",
+    "themeDescription": "Choose between light and dark mode.",
+    "hungarian": "Hungarian",
+    "english": "English",
+    "default": "Default",
+    "pink": "Pink"
+  },
+  "dashboard": {
+    "health" : "Health",
+    "space" : "Free Space"
+  },
+  "service": {
+    "title" : "Services",
+    "sub-title" : "Tailscale, Samba, hd-idle status",
+    "card-title" : "Service status",
+    "running": "Running",
+    "not-running": "Down",
+    "refresh" : "Refresh"
   }
 }

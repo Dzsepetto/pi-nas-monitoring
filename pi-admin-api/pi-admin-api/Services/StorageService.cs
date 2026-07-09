@@ -179,7 +179,7 @@ public class StorageService : IStorageService
             );
 
             var displayName = uuid == sysUuid
-                ? "Rendszer tárhely"
+                ? "System Storage"
                 : config.TryGetValue(uuid, out var settings)
                     ? settings.DisplayName
                     : uuid;

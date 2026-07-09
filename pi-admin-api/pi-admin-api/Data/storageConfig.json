@@ -1,8 +1,8 @@
 ﻿{
   "1EA63C65A63C4017": {
-    "displayName": "Elsődleges tárhely"
+    "displayName": "Main Storage"
   },
   "3E6A68956A684C29": {
-    "displayName": "Másodlagos tárhely"
+    "displayName": "Secondary Storage"
   }
 }

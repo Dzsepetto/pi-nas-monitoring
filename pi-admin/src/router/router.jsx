@@ -9,6 +9,7 @@ import StoragePage from '../pages/StoragePage'
 import NotFoundPage from '../pages/NotFoundPage'
 import DashboardPage from '../pages/DashboardPage'
 import StorageDetailPage from '../pages/StorageDetailPage'
+import SettingsPage from '../pages/SettingsPage'
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
                     {
             path: '/storage/:uuid',
             element: <StorageDetailPage />
+          },
+          {
+            path: '/settings',
+            element: <SettingsPage />
           },
         ]
       }

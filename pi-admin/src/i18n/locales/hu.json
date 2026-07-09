@@ -5,7 +5,8 @@
     "services": "Szolgáltatások",
     "storage": "Háttértárak",
     "logout": "Kilépés",
-    "openMenu": "Menü megnyitása"
+    "openMenu": "Menü megnyitása",
+    "settings": "Beállítások"
   },
   "storage": {
     "title": "Tárhely",
@@ -22,5 +23,29 @@
     "notMounted": "Nincs csatolva",
     "noDevice": "Nincs eszköz",
     "notAvailable": "N/A"
+  },
+  "settings": {
+    "title": "Beállítások",
+    "description": "Itt módosíthatod az alkalmazás megjelenését és nyelvét.",
+    "languageTitle": "Nyelv",
+    "languageDescription": "Válaszd ki az alkalmazás nyelvét.",
+    "themeTitle": "Téma",
+    "themeDescription": "Válaszd ki a világos vagy sötét megjelenést.",
+    "hungarian": "Magyar",
+    "english": "Angol",
+    "default": "Alap",
+    "pink": "Pink"
+  },
+  "dashboard": {
+    "health" : "Health",
+    "space" : "Szabad tárhely"
+  },
+    "service": {
+    "title" : "Services",
+    "sub-title" : "Tailscale, Samba, hd-idle állapota",
+    "card-title" : "Service státuszok",
+    "running": "Fut",
+    "not-running": "Nem fut",
+    "refresh" : "Frissítés"
   }
 }

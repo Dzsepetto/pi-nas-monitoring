@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f3f4f6;
+  background: var(--bg-color);
   color: #111827;
 }
 
@@ -43,8 +43,10 @@ body {
 
 .card,
 .panel {
-  background: white;
+  background: var(--surface-color);
+  color: var(--text-color);
   border-radius: 18px;
+  border: 1px solid var(--border-color);
   padding: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
@@ -71,7 +73,7 @@ body {
 
 button {
   border: 0;
-  background: #2563eb;
+  background: var(--primary-color);
   color: white;
   padding: 12px 16px;
   border-radius: 10px;
@@ -112,21 +114,4 @@ button:hover {
   .cards {
     grid-template-columns: 1fr;
   }
-}
-
-.topbar-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.running {
-  color: #22c55e;
-}
-
-.warning {
-  color: #f59e0b;
-}
-
-.error {
-  color: #ef4444;
 }
