@@ -1,5 +1,5 @@
 import Topbar from '../components/elements/TopBar/Topbar'
-import ServiceStatusWidget from '../components/widgets/service/Status/ServiceStatusWidget'
+import ServiceStatusListWidget from '../components/widgets/service/Status/ServiceStatusListWidget'
 import DashboardStorageWidget from '../components/widgets/dashboard/storage/DashboardStorageWidget'
 import './style/dashboardStyle.css'
 
@@ -12,7 +12,7 @@ function DashboardPage() {
       />
 
       <section className="dashboard-grid">
-        <ServiceStatusWidget />
+        <ServiceStatusListWidget />
         <DashboardStorageWidget />
       </section>
     </>

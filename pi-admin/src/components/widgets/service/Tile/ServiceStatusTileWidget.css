@@ -1,0 +1,56 @@
+.service-status-tile-widget {
+  width: 100%;
+}
+
+.service-status-tile-widget .widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service-status-tile-widget .widget-header h2 {
+  margin: 0;
+}
+
+.service-status-tile-widget .widget-header button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-status-tile-widget .widget-header button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.service-status-tile-widget .widget-header button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.service-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .service-status-tile-widget .widget-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .service-status-tile-widget .widget-header button {
+    width: 100%;
+  }
+
+  .service-tile-grid {
+    grid-template-columns: 1fr;
+  }
+}

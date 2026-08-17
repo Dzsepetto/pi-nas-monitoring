@@ -1,0 +1,123 @@
+.service-tile {
+  box-sizing: border-box;
+  min-height: 110px;
+  padding: 1rem;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.service-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.service-tile.expanded {
+  min-height: 160px;
+}
+
+.service-tile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service-tile-header span {
+  font-weight: 600;
+}
+
+.service-tile-header strong {
+  font-size: 0.9rem;
+}
+
+.service-tile-header .running {
+  color: #2e7d32;
+}
+
+.service-tile-header .warning {
+  color: #c62828;
+}
+
+.service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.service-actions button {
+  flex: 1;
+
+  min-width: 70px;
+  padding: 0.55rem 0.75rem;
+
+  border: none;
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.service-actions button:nth-child(1) {
+  background: #2e7d32;
+  color: #ffffff;
+}
+
+.service-actions button:nth-child(1):hover:not(:disabled) {
+  background: #256628;
+}
+
+.service-actions button:nth-child(2) {
+  background: #c62828;
+  color: #ffffff;
+}
+
+.service-actions button:nth-child(2):hover:not(:disabled) {
+  background: #a51f1f;
+}
+
+.service-actions button:nth-child(3) {
+  background: #f9a825;
+  color: #ffffff;
+}
+
+.service-actions button:nth-child(3):hover:not(:disabled) {
+  background: #e09616;
+}
+
+.service-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.service-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@media (max-width: 600px) {
+  .service-tile-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .service-actions {
+    flex-direction: column;
+  }
+
+  .service-actions button {
+    width: 100%;
+  }
+}

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import Topbar from '../components/elements/TopBar/Topbar'
-import ServiceStatusWidget from '../components/widgets/service/Status/ServiceStatusWidget'
+import ServiceStatusListWidget from '../components/widgets/service/Status/ServiceStatusListWidget'
+import ServiceStatusTileWidget from '../components/widgets/service/Tile/ServiceStatusTileWidget'
 
 function ServicesPage() {
   const {t} = useTranslation()
@@ -11,7 +12,8 @@ function ServicesPage() {
         subtitle={t('service.sub-title')}
       />
 
-      <ServiceStatusWidget />
+      <ServiceStatusListWidget />
+      <ServiceStatusTileWidget />
     </>
   )
 }
