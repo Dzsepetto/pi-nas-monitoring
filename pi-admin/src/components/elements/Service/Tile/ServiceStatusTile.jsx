@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { changeServiceStatus } from '../../../../api/systemApi'
+
 import './ServiceStatusTile.css'
 
 function ServiceStatusTile({ service, onRefresh }) {
@@ -34,7 +36,7 @@ function ServiceStatusTile({ service, onRefresh }) {
     try {
       setLoading(true)
 
-      // await startService(service.name)
+      await changeServiceStatus(service.name, 'start')
 
       await onRefresh()
     } finally {
@@ -48,7 +50,7 @@ function ServiceStatusTile({ service, onRefresh }) {
     try {
       setLoading(true)
 
-      // await stopService(service.name)
+      await changeServiceStatus(service.name, 'stop')
 
       await onRefresh()
     } finally {
@@ -62,7 +64,7 @@ function ServiceStatusTile({ service, onRefresh }) {
     try {
       setLoading(true)
 
-      // await restartService(service.name)
+      await changeServiceStatus(service.name, 'restart')
 
       await onRefresh()
     } finally {

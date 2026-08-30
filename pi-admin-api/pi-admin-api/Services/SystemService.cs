@@ -65,5 +65,32 @@ namespace pi_admin_api.Services
                 _ => "unknown"
             };
         }
+
+        public async Task<bool> ChangeServiceStatusAsync(string serviceName, string wantedStatus)
+        {
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "sudo",
+                Arguments = $"systemctl {wantedStatus} {serviceName}",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using var process = new Process
+            {
+                StartInfo = startInfo
+            };
+
+            process.Start();
+
+            await process.StandardOutput.ReadToEndAsync();
+            await process.StandardError.ReadToEndAsync();
+
+            await process.WaitForExitAsync();
+
+            return process.ExitCode == 0;
+        }
     }
 }

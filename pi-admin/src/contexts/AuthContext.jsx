@@ -1,11 +1,13 @@
 import { createContext, useEffect, useState } from 'react'
+
 import { getToken, removeToken, saveToken } from '../utils/authStorage'
 
 export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(getToken())
-  const [isAuthenticated, setIsAuthenticated] = useState(!!getToken())
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   function login(token) {
     saveToken(token)
@@ -21,6 +23,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     setIsAuthenticated(!!token)
+    setIsLoading(false)
   }, [token])
 
   return (
@@ -28,6 +31,7 @@ export function AuthProvider({ children }) {
       value={{
         token,
         isAuthenticated,
+        isLoading,
         login,
         logout
       }}

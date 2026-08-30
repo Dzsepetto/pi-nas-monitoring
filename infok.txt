@@ -11,7 +11,7 @@ ASPNETCORE_URLS=http://0.0.0.0:5000 ./pi-admin-api #igy futtatjuk
 
 
 Release:
-dotnet publish -c Release -r linux-arm64 --self-contained true -p:PublishSingleFile=true -o ./publish^C
+dotnet publish -c Release -r linux-arm64 --self-contained true -p:PublishSingleFile=true -o ./publish
 
 
 mi kell hozzá: 

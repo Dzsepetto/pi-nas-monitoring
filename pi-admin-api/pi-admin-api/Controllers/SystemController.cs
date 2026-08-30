@@ -25,5 +25,16 @@ namespace pi_admin_api.Controllers
 
             return Ok(ApiResponse<ServicesStatusResponse>.Ok(result));
         }
+
+        [HttpPost("services/statuschange")]
+        public async Task<IActionResult> ChangeServiceStatus([FromBody] ChangeServiceStatusRequest request)
+        {
+            var success = await _systemService.ChangeServiceStatusAsync(request.ServiceName, request.WantedStatus);
+
+            if (!success)
+                return BadRequest();
+
+            return Ok();
+        }
     }
 }

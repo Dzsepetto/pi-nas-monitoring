@@ -1,6 +1,6 @@
 import { getToken } from '../utils/authStorage'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 export async function apiRequest(path, options = {}) {
   const token = getToken()
@@ -19,11 +19,32 @@ export async function apiRequest(path, options = {}) {
     headers
   })
 
-  const result = await response.json()
+  const text = await response.text()
 
-  if (!response.ok || !result.success) {
+  let result = null
+
+  if (text) {
+    result = JSON.parse(text)
+  }
+
+  if (!response.ok) {
+    console.log(result?.error?.message)
+
+    throw new Error(
+      result?.error?.message || 'API hiba történt.'
+    )
+  }
+
+  if (!result) {
+    return null
+  }
+
+  if (result.success === false) {
     console.log(result.error?.message)
-    throw new Error(result.error?.message || 'API hiba történt.')
+
+    throw new Error(
+      result.error?.message || 'API hiba történt.'
+    )
   }
 
   return result.data
