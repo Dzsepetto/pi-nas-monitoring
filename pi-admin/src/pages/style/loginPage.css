@@ -1,3 +1,4 @@
+
 .login-page {
   min-height: 100vh;
   display: grid;
@@ -36,6 +37,9 @@
   border: 1px solid var(--border-color);
   background: var(--surface-hover);
   color: white;
+
+  /* Prevent automatic zoom on iOS */
+  font-size: 16px;
 }
 
 .login-error {
